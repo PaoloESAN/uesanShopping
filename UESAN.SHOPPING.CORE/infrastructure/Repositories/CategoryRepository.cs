@@ -7,7 +7,7 @@ using UESAN.SHOPPING.CORE.core.Interfaces;
 
 namespace UESAN.SHOPPING.CORE.infrastructure.Repositories
 {
-    internal class CategoryRepository : ICategoryRepository
+    public class CategoryRepository : ICategoryRepository
     {
         private readonly StoreDBContext _context;
 

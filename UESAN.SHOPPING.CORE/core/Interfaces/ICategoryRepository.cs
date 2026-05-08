@@ -2,7 +2,7 @@
 
 namespace UESAN.SHOPPING.CORE.core.Interfaces
 {
-    internal interface ICategoryRepository
+    public interface ICategoryRepository
     {
         Task CreateCategory(Category category);
         Task DeleteCategory(int id);
