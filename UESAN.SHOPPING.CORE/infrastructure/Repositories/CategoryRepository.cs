@@ -23,5 +23,24 @@ namespace UESAN.SHOPPING.CORE.infrastructure.Repositories
         {
             return await _context.Categories.Where(c => c.Id == id).FirstOrDefaultAsync();
         }
+
+        public async Task UpdateCategory(Category category)
+        {
+            var existingCategory = await _context.Categories.Where(c => c.Id == category.Id).FirstOrDefaultAsync();
+            if(existingCategory != null)
+            {
+                existingCategory.Description = category.Description;
+                await _context.SaveChangesAsync();
+            }
+        }
+        public async Task DeleteCategory(int id)
+        {
+            var existingCategory = await _context.Categories.Where(c => c.Id == id).FirstOrDefaultAsync();
+            if (existingCategory != null)
+            {
+                existingCategory.IsActive = false;
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }
