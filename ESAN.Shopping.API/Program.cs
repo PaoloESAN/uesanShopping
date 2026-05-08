@@ -15,7 +15,7 @@ var _config = builder.Configuration;
 var cnx = _config.GetConnectionString("DevConnection");
 builder.Services.AddDbContext<StoreDBContext>(options => options.UseSqlServer(cnx));
 
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

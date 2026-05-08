@@ -44,7 +44,7 @@ namespace UESAN.SHOPPING.CORE.infrastructure.Repositories
             var existingCategory = await _context.Categories.Where(c => c.Id == id).FirstOrDefaultAsync();
             if (existingCategory != null)
             {
-                existingCategory.IsActive = false;
+                _context.Categories.Remove(existingCategory);
                 await _context.SaveChangesAsync();
             }
         }

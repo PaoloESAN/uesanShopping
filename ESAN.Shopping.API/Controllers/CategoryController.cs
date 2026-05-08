@@ -50,6 +50,9 @@ namespace ESAN.Shopping.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+            var category = await _categoryRepository.GetCategoryById(id);
+            if (category == null)
+                return NotFound();
             await _categoryRepository.DeleteCategory(id);
             return NoContent();
         }
