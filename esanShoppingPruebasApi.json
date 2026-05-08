@@ -1,0 +1,151 @@
+{
+  "info": {
+    "name": "esanShoppingPruebasApi",
+    "description": null,
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "get",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:5170/api/category",
+          "protocol": "http",
+          "host": [
+            "localhost:5170"
+          ],
+          "path": [
+            "api",
+            "category"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "post",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:5170/api/category",
+          "protocol": "http",
+          "host": [
+            "localhost:5170"
+          ],
+          "path": [
+            "api",
+            "category"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"isActive\": true,\n  \"description\": \"Descripción de la categordawdawía\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "get id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:5170/api/category/1",
+          "protocol": "http",
+          "host": [
+            "localhost:5170"
+          ],
+          "path": [
+            "api",
+            "category",
+            "1"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "put",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:5170/api/category/1",
+          "protocol": "http",
+          "host": [
+            "localhost:5170"
+          ],
+          "path": [
+            "api",
+            "category",
+            "1"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"description\": \"Nueva descripción dawd\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:5170/api/category/11",
+          "protocol": "http",
+          "host": [
+            "localhost:5170"
+          ],
+          "path": [
+            "api",
+            "category",
+            "11"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    }
+  ],
+  "variable": []
+}
