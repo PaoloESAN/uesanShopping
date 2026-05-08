@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace UESAN.SHOPPING.CORE.core.Entities;
 
-public partial class logisticaBDContext : DbContext
+public partial class StoreDBContext : DbContext
 {
-    public logisticaBDContext(DbContextOptions<logisticaBDContext> options)
+    public StoreDBContext(DbContextOptions<StoreDBContext> options)
         : base(options)
     {
     }

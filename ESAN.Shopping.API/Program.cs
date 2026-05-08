@@ -11,7 +11,7 @@ builder.Services.AddOpenApi();
 
 var _config = builder.Configuration;
 var cnx = _config.GetConnectionString("DevConnection");
-builder.Services.AddDbContext<logisticaBDContext>(options => options.UseSqlServer(cnx));
+builder.Services.AddDbContext<StoreDBContext>(options => options.UseSqlServer(cnx));
 
 var app = builder.Build();
 

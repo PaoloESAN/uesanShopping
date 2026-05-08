@@ -3,14 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UESAN.SHOPPING.CORE.core.Entities;
+using UESAN.SHOPPING.CORE.core.Interfaces;
 
 namespace UESAN.SHOPPING.CORE.infrastructure.Repositories
 {
-    internal class CategoryRepository
+    internal class CategoryRepository : ICategoryRepository
     {
-        private readonly logisticaBDContext _context;
+        private readonly StoreDBContext _context;
 
-        public CategoryRepository(logisticaBDContext context)
+        public CategoryRepository(StoreDBContext context)
         {
             _context = context;
         }
@@ -18,6 +19,11 @@ namespace UESAN.SHOPPING.CORE.infrastructure.Repositories
         public async Task<IEnumerable<Category>> GetCategoriesAsync()
         {
             return await _context.Categories.ToListAsync();
+        }
+        public async Task CreateCategory(Category category)
+        {
+            _context.Categories.Add(category);
+            await _context.SaveChangesAsync();
         }
         public async Task<Category> GetCategoryById(int id)
         {
@@ -27,7 +33,7 @@ namespace UESAN.SHOPPING.CORE.infrastructure.Repositories
         public async Task UpdateCategory(Category category)
         {
             var existingCategory = await _context.Categories.Where(c => c.Id == category.Id).FirstOrDefaultAsync();
-            if(existingCategory != null)
+            if (existingCategory != null)
             {
                 existingCategory.Description = category.Description;
                 await _context.SaveChangesAsync();
