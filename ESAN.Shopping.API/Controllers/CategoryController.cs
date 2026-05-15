@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using UESAN.SHOPPING.CORE.core.Entities;
+﻿using Microsoft.AspNetCore.Mvc;
+using UESAN.SHOPPING.CORE.core.DTOs;
 using UESAN.SHOPPING.CORE.core.Interfaces;
 namespace ESAN.Shopping.API.Controllers
 {
@@ -8,52 +7,52 @@ namespace ESAN.Shopping.API.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly ICategoryRepository _categoryRepository;
+        private readonly ICategoryServices _categoryServices;
 
-        public CategoryController(ICategoryRepository categoryRepository)
+        public CategoryController(ICategoryServices categoryServices)
         {
-            _categoryRepository = categoryRepository;
+            _categoryServices = categoryServices;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var categories = await _categoryRepository.GetCategoriesAsync();
+            var categories = await _categoryServices.GetCategories();
             return Ok(categories);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var category = await _categoryRepository.GetCategoryById(id);
+            var category = await _categoryServices.GetCategoriesById(id);
             if (category == null)
                 return NotFound();
             return Ok(category);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Category category)
+        public async Task<IActionResult> Create([FromBody] CategoryCreateDTO category)
         {
-            await _categoryRepository.CreateCategory(category);
-            return CreatedAtAction(nameof(GetById), new { id = category.Id }, category);
+            await _categoryServices.AddCategory(category);
+            return Ok(category);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] Category category)
+        public async Task<IActionResult> Update(int id, [FromBody] CategoryUpdateDTO category)
         {
             if (id != category.Id)
                 return BadRequest();
-            await _categoryRepository.UpdateCategory(category);
+            await _categoryServices.UpdateCategory(category);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var category = await _categoryRepository.GetCategoryById(id);
+            var category = await _categoryServices.GetCategoriesById(id);
             if (category == null)
                 return NotFound();
-            await _categoryRepository.DeleteCategory(id);
+            await _categoryServices.DeleteCategory(new CategoryDeleteDTO { Id = id });
             return NoContent();
         }
     }
