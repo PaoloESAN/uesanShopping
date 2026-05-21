@@ -1,6 +1,5 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using UESAN.SHOPPING.CORE.core.Entities;
+using UESAN.SHOPPING.CORE.core.DTOs;
 using UESAN.SHOPPING.CORE.core.Interfaces;
 namespace ESAN.Shopping.API.Controllers
 {
@@ -8,52 +7,52 @@ namespace ESAN.Shopping.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IProductServices _productServices;
 
-        public ProductController(IProductRepository productRepository)
+        public ProductController(IProductServices productServices)
         {
-            _productRepository = productRepository;
+            _productServices = productServices;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var products = await _productRepository.GetProductsAsync();
+            var products = await _productServices.GetProducts();
             return Ok(products);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var product = await _productRepository.GetProductById(id);
+            var product = await _productServices.GetProductsById(id);
             if (product == null)
                 return NotFound();
             return Ok(product);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Product product)
+        public async Task<IActionResult> Create([FromBody] ProductCreateDTO product)
         {
-            await _productRepository.CreateProduct(product);
-            return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
+            await _productServices.AddProduct(product);
+            return Ok(product);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] Product product)
+        public async Task<IActionResult> Update(int id, [FromBody] ProductUpdateDTO product)
         {
             if (id != product.Id)
                 return BadRequest();
-            await _productRepository.UpdateProduct(product);
+            await _productServices.UpdateProduct(product);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var product = await _productRepository.GetProductById(id);
+            var product = await _productServices.GetProductsById(id);
             if (product == null)
                 return NotFound();
-            await _productRepository.DeleteProduct(id);
+            await _productServices.DeleteProduct(new ProductDeleteDTO { Id = id });
             return NoContent();
         }
     }
