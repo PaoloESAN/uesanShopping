@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using UESAN.SHOPPING.CORE.core.DTOs;
 using UESAN.SHOPPING.CORE.core.Interfaces;
 namespace ESAN.Shopping.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryServices _categoryServices;

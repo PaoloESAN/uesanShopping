@@ -10,15 +10,18 @@ namespace UESAN.SHOPPING.CORE.core.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        public UserService(IUserRepository userRepository)
+        private readonly IJWTService _jWTService;
+        public UserService(IUserRepository userRepository, IJWTService jWTService)
         {
             _userRepository = userRepository;
+            this._jWTService = jWTService;
+
         }
 
         public async Task<UserDTO> SignIn(string email, string password)
         {
             var user = await _userRepository.SignIn(email, password);
-            var token = "";
+            var token = _jWTService.GenerateJWToken(user);
             if (user == null) return null;
             return new UserDTO
             {
@@ -26,7 +29,7 @@ namespace UESAN.SHOPPING.CORE.core.Services
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
-                Token = "token"
+                Token = token
             };
         }
 

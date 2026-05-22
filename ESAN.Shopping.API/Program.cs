@@ -3,6 +3,7 @@ using UESAN.SHOPPING.CORE.core.Entities;
 using UESAN.SHOPPING.CORE.core.Interfaces;
 using UESAN.SHOPPING.CORE.core.Services;
 using UESAN.SHOPPING.CORE.infrastructure.Repositories;
+using UESAN.SHOPPING.CORE.infrastructure.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,9 @@ builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddTransient<IProductServices, ProductServices>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IUserService, UserService>();
+
+builder.Services.AddSharedInfrastructure(_config);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
