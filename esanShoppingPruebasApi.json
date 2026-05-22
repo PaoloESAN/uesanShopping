@@ -227,7 +227,12 @@
             "method": "GET",
             "header": [],
             "auth": {
-              "type": "noauth"
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSnVhblBlcmV6IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZ2l2ZW5uYW1lIjoiSnVhbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6Imp1YW4ucGVyZXpAZW1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZGF0ZW9mYmlydGgiOiIxNS8wNi8xOTk1IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvY291bnRyeSI6IlBlcnUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiVXNlcklkIjoiMTgiLCJuYmYiOjE3Nzk0MTM0OTYsImV4cCI6MTc3OTQxMzYxNiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDIzMyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjQyMjIifQ.D7AAqKyGha4h-Z2-KDrenINrokwwPIhwbc3vWhAU_q8",
+                "type": "string"
+              }
             },
             "description": "",
             "url": {
@@ -255,7 +260,7 @@
             },
             "description": "",
             "url": {
-              "raw": "http://localhost:5170/api/product/17",
+              "raw": "http://localhost:5170/api/product/16",
               "protocol": "http",
               "host": [
                 "localhost:5170"
@@ -263,7 +268,7 @@
               "path": [
                 "api",
                 "product",
-                "17"
+                "16"
               ],
               "query": [],
               "variable": []
@@ -292,6 +297,78 @@
               ],
               "query": [],
               "variable": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "signup",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "http://localhost:5170/api/user",
+              "protocol": "http",
+              "host": [
+                "localhost:5170"
+              ],
+              "path": [
+                "api",
+                "user"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Juan\",\n  \"lastName\": \"Perez\",\n  \"email\": \"juan.perez@email.com\",\n  \"password\": \"123456\",\n  \"dateOfBirth\": \"1995-06-15\",\n  \"country\": \"Peru\",\n  \"address\": \"Av. Principal 123\",\n  \"type\": \"C\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "signin",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "http://localhost:5170/api/user/signin",
+              "protocol": "http",
+              "host": [
+                "localhost:5170"
+              ],
+              "path": [
+                "api",
+                "user",
+                "signin"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"juan.perez@email.com\",\n  \"password\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             }
           }
         }
