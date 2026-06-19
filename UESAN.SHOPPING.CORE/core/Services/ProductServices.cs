@@ -27,7 +27,9 @@ namespace UESAN.SHOPPING.CORE.core.Services
                     Id = product.Id,
                     Description = product.Description,
                     Price = product.Price,
-                    ImageUrl = product.ImageUrl
+                    ImageUrl = product.ImageUrl,
+                    Stock = product.Stock,
+                    CategoryId = product.CategoryId
                 };
                 productsDTOs.Add(productDTO);
             }

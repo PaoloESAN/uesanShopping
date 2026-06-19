@@ -6,7 +6,6 @@ namespace ESAN.Shopping.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryServices _categoryServices;

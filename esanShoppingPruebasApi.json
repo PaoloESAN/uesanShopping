@@ -1,331 +1,46 @@
 {
   "info": {
-    "name": "esanShoppingPruebasApi",
-    "description": null,
+    "name": "UESAN Shopping API",
+    "description": "Colección de endpoints para la API de UESAN Shopping.\n\n## Autenticación\n1. Ejecuta **Signin** en la carpeta User para obtener un token JWT.\n2. El token se guarda automáticamente en la variable `authToken`.\n3. Las carpetas Category y Product heredan la autenticación Bearer automáticamente.\n\n## Variables de colección\n- `baseUrl`: URL base del API (por defecto `http://localhost:5170`)\n- `authToken`: Token JWT (se actualiza automáticamente al hacer signin)",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{authToken}}",
+        "type": "string"
+      }
+    ]
   },
   "item": [
     {
-      "name": "Category",
-      "item": [
-        {
-          "name": "get",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "auth": {
-              "type": "noauth"
-            },
-            "description": "",
-            "url": {
-              "raw": "http://localhost:5170/api/category",
-              "protocol": "http",
-              "host": [
-                "localhost:5170"
-              ],
-              "path": [
-                "api",
-                "category"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "post",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "auth": {
-              "type": "noauth"
-            },
-            "description": "",
-            "url": {
-              "raw": "http://localhost:5170/api/category",
-              "protocol": "http",
-              "host": [
-                "localhost:5170"
-              ],
-              "path": [
-                "api",
-                "category"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"isActive\": true,\n  \"description\": \"Descripción de la categordawdawía\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "get id",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "auth": {
-              "type": "noauth"
-            },
-            "description": "",
-            "url": {
-              "raw": "http://localhost:5170/api/category/1",
-              "protocol": "http",
-              "host": [
-                "localhost:5170"
-              ],
-              "path": [
-                "api",
-                "category",
-                "1"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "put",
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "auth": {
-              "type": "noauth"
-            },
-            "description": "",
-            "url": {
-              "raw": "http://localhost:5170/api/category/1",
-              "protocol": "http",
-              "host": [
-                "localhost:5170"
-              ],
-              "path": [
-                "api",
-                "category",
-                "1"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"id\": 1,\n  \"description\": \"Nueva descripción dawd\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "delete",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "auth": {
-              "type": "noauth"
-            },
-            "description": "",
-            "url": {
-              "raw": "http://localhost:5170/api/category/11",
-              "protocol": "http",
-              "host": [
-                "localhost:5170"
-              ],
-              "path": [
-                "api",
-                "category",
-                "11"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Product",
-      "item": [
-        {
-          "name": "post",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "auth": {
-              "type": "noauth"
-            },
-            "description": "",
-            "url": {
-              "raw": "http://localhost:5170/api/product",
-              "protocol": "http",
-              "host": [
-                "localhost:5170"
-              ],
-              "path": [
-                "api",
-                "product"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"description\": \"Producto X\",\n  \"imageUrl\": \"https://...\",\n  \"stock\": 10,\n  \"price\": 49.90,\n  \"discount\": 5,\n  \"categoryId\": 1,\n  \"isActive\": true\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "put",
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "auth": {
-              "type": "noauth"
-            },
-            "description": "",
-            "url": {
-              "raw": "http://localhost:5170/api/product/17",
-              "protocol": "http",
-              "host": [
-                "localhost:5170"
-              ],
-              "path": [
-                "api",
-                "product",
-                "17"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"id\": 17,\n  \"description\": \"Producto X actualizado\",\n  \"imageUrl\": \"https://...\",\n  \"stock\": 15,\n  \"price\": 59.90,\n  \"discount\": 0,\n  \"categoryId\": 1,\n  \"isActive\": true\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "get",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "key": "token",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSnVhblBlcmV6IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZ2l2ZW5uYW1lIjoiSnVhbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6Imp1YW4ucGVyZXpAZW1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZGF0ZW9mYmlydGgiOiIxNS8wNi8xOTk1IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvY291bnRyeSI6IlBlcnUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiVXNlcklkIjoiMTgiLCJuYmYiOjE3Nzk0MTM0OTYsImV4cCI6MTc3OTQxMzYxNiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDIzMyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjQyMjIifQ.D7AAqKyGha4h-Z2-KDrenINrokwwPIhwbc3vWhAU_q8",
-                "type": "string"
-              }
-            },
-            "description": "",
-            "url": {
-              "raw": "http://localhost:5170/api/product",
-              "protocol": "http",
-              "host": [
-                "localhost:5170"
-              ],
-              "path": [
-                "api",
-                "product"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "delete",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "auth": {
-              "type": "noauth"
-            },
-            "description": "",
-            "url": {
-              "raw": "http://localhost:5170/api/product/16",
-              "protocol": "http",
-              "host": [
-                "localhost:5170"
-              ],
-              "path": [
-                "api",
-                "product",
-                "16"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        },
-        {
-          "name": "get id",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "auth": {
-              "type": "noauth"
-            },
-            "description": "",
-            "url": {
-              "raw": "http://localhost:5170/api/product/1",
-              "protocol": "http",
-              "host": [
-                "localhost:5170"
-              ],
-              "path": [
-                "api",
-                "product",
-                "1"
-              ],
-              "query": [],
-              "variable": []
-            }
-          }
-        }
-      ]
-    },
-    {
       "name": "User",
+      "description": "Endpoints públicos de autenticación y registro de usuarios.",
+      "auth": {
+        "type": "noauth"
+      },
       "item": [
         {
-          "name": "signup",
+          "name": "Signup",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "auth": {
               "type": "noauth"
             },
-            "description": "",
+            "description": "Registra un nuevo usuario en el sistema.",
             "url": {
-              "raw": "http://localhost:5170/api/user",
+              "raw": "{{baseUrl}}/api/user",
               "protocol": "http",
-              "host": [
-                "localhost:5170"
-              ],
-              "path": [
-                "api",
-                "user"
-              ],
-              "query": [],
-              "variable": []
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "user"]
             },
             "body": {
               "mode": "raw",
@@ -339,27 +54,24 @@
           }
         },
         {
-          "name": "signin",
+          "name": "Signin",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "auth": {
               "type": "noauth"
             },
-            "description": "",
+            "description": "Inicia sesión y obtiene un token JWT.\n\nEl token se guarda automáticamente en la variable `authToken` de la colección.",
             "url": {
-              "raw": "http://localhost:5170/api/user/signin",
+              "raw": "{{baseUrl}}/api/user/signin",
               "protocol": "http",
-              "host": [
-                "localhost:5170"
-              ],
-              "path": [
-                "api",
-                "user",
-                "signin"
-              ],
-              "query": [],
-              "variable": []
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "user", "signin"]
             },
             "body": {
               "mode": "raw",
@@ -370,10 +82,286 @@
                 }
               }
             }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.collectionVariables.set('authToken', jsonData.token);",
+                  "    console.log('Token guardado correctamente:', jsonData.token);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "description": "CRUD de categorías. Requiere autenticación JWT.",
+      "item": [
+        {
+          "name": "Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "description": "Obtiene todas las categorías activas.",
+            "url": {
+              "raw": "{{baseUrl}}/api/category",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "category"]
+            }
+          }
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "description": "Obtiene una categoría por su ID.",
+            "url": {
+              "raw": "{{baseUrl}}/api/category/{{categoryId}}",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "category", "{{categoryId}}"],
+              "variable": [
+                {
+                  "key": "categoryId",
+                  "value": "1",
+                  "description": "ID de la categoría"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Crea una nueva categoría.\n\nEl campo `isActive` no se incluye en CategoryCreateDTO pero puede enviarse opcionalmente.",
+            "url": {
+              "raw": "{{baseUrl}}/api/category",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "category"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Nueva categoría\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Actualiza una categoría existente. El ID en la URL debe coincidir con el ID del body.",
+            "url": {
+              "raw": "{{baseUrl}}/api/category/{{categoryId}}",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "category", "{{categoryId}}"],
+              "variable": [
+                {
+                  "key": "categoryId",
+                  "value": "1",
+                  "description": "ID de la categoría a actualizar"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"description\": \"Descripción actualizada\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "description": "Elimina una categoría por su ID.",
+            "url": {
+              "raw": "{{baseUrl}}/api/category/{{categoryId}}",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "category", "{{categoryId}}"],
+              "variable": [
+                {
+                  "key": "categoryId",
+                  "value": "1",
+                  "description": "ID de la categoría a eliminar"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "description": "CRUD de productos. Requiere autenticación JWT.",
+      "item": [
+        {
+          "name": "Get All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "description": "Obtiene todos los productos activos.",
+            "url": {
+              "raw": "{{baseUrl}}/api/product",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "product"]
+            }
+          }
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "description": "Obtiene un producto por su ID.",
+            "url": {
+              "raw": "{{baseUrl}}/api/product/{{productId}}",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "product", "{{productId}}"],
+              "variable": [
+                {
+                  "key": "productId",
+                  "value": "1",
+                  "description": "ID del producto"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Crea un nuevo producto.\n\nEl campo `isActive` no se incluye en ProductCreateDTO pero puede enviarse opcionalmente.",
+            "url": {
+              "raw": "{{baseUrl}}/api/product",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "product"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Producto de ejemplo\",\n  \"imageUrl\": \"https://ejemplo.com/imagen.jpg\",\n  \"stock\": 10,\n  \"price\": 49.90,\n  \"discount\": 5,\n  \"categoryId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "description": "Actualiza un producto existente. El ID en la URL debe coincidir con el ID del body.",
+            "url": {
+              "raw": "{{baseUrl}}/api/product/{{productId}}",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "product", "{{productId}}"],
+              "variable": [
+                {
+                  "key": "productId",
+                  "value": "1",
+                  "description": "ID del producto a actualizar"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"description\": \"Producto actualizado\",\n  \"imageUrl\": \"https://ejemplo.com/imagen.jpg\",\n  \"stock\": 15,\n  \"price\": 59.90,\n  \"discount\": 0,\n  \"categoryId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "description": "Elimina un producto por su ID.",
+            "url": {
+              "raw": "{{baseUrl}}/api/product/{{productId}}",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "product", "{{productId}}"],
+              "variable": [
+                {
+                  "key": "productId",
+                  "value": "1",
+                  "description": "ID del producto a eliminar"
+                }
+              ]
+            }
           }
         }
       ]
     }
   ],
-  "variable": []
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5170",
+      "type": "string"
+    },
+    {
+      "key": "authToken",
+      "value": "",
+      "type": "string"
+    }
+  ]
 }
